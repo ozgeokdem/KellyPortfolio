@@ -1,0 +1,75 @@
+﻿@model ResumePage
+
+<!-- Resume Section -->
+<section id="resume" class="resume section">
+
+    @await Html.PartialAsync("_SectionTitle",
+    new SectionTitleVM
+    {
+                Title = "Özgeçmiş",
+        Description = "Eğitim ve İş deneyimlerim."
+            })
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                @if (Model.Sumary != null)
+                {
+                    <h3 class="resume-title">@Model.Sumary.Title</h3>
+
+                    <div class="resume-item pb-0">
+                        <h4>@Model.Sumary.Name</h4>
+                        <p><em>@Model.Sumary.Description</em></p>
+                        <ul>
+                            <li>@Model.Sumary.Address</li>
+                            <li>@Model.Sumary.Phone</li>
+                            <li>@Model.Sumary.Email</li>
+                        </ul>
+                    </div>
+                }
+                <!-- Edn Resume Item -->
+
+                
+                <h3 class="resume-title">Eğitim</h3>
+
+                @foreach (var item in Model.Educations)
+                {
+                    <div class="resume-item">
+                        <h4>@item.Degree</h4>
+                        <h5>@item.StartYear - @item.EndYear</h5>
+                        <p><em>@item.Institution</em></p>
+                        <p>@item.Description</p>
+                    </div><!-- Edn Resume Item -->
+                }
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                
+                
+                <h3 class="resume-title">Deneyim</h3>
+
+                @foreach (var item in Model.Experiences)
+                {
+                    <div class="resume-item">
+                        <h4>@item.Position</h4>
+                        <h5>@item.StartYear - @item.EndYear</h5>
+                        <p><em>@item.Company </em></p>
+                        <ul>
+                            @foreach (var detail in item.Items)
+                            {
+                                <li>@detail.Responsibility</li>
+                            }
+                            
+                        </ul>
+                    </div><!-- Edn Resume Item -->
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- /Resume Section -->

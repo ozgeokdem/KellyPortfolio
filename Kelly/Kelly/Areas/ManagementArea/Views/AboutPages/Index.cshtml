@@ -1,0 +1,114 @@
+﻿@model AboutPage
+
+<div class="col-12">
+    <div class="card">
+        
+        <div class="card-header">
+            <h1 style="display:inline-block;">Hakkımızda Sayfası</h1>
+            <a asp-area="ManagementArea" asp-controller="AboutPages" asp-action="Edit" class=" btn btn-warning" style="float:right;" >Düzenle</a>
+        </div>
+
+        <div class="card-body">
+
+            <div class="mb-2">
+                 <h3>Sayfa Başlığı</h3>
+                 <p>@Model.PageTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Sayfa Açıklaması</h3>
+                <p>@Model.PageDescription</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Hakkımızda Başlığı</h3>
+                <p>@Model.AboutTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Hakkımızda Açıklaması</h3>
+                <p>@Model.AboutDescription</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Hakkımızda İçeriği</h3>
+                <p>@Model.AboutContent</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Hakkımızda Görseli</h3>
+                <img src="@Model.ImageUrl" width="100px" />
+            </div>
+
+            <div class="mb-2">
+                <h3>Doğum Tarihi</h3>
+                <p>@Model.AboutBirthday?.ToString("dd/MM/yyyy")</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Web Sitesi</h3>
+                <p>@Model.AboutWebsite</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Telefon Numarası</h3>
+                <p>@Model.AboutPhoneNumber</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Şehir</h3>
+                <p>@Model.AboutCity</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Yaş</h3>
+                <p>@Model.AboutAge</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Derece</h3>
+                <p>@Model.AboutDegree</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>E-posta</h3>
+                <p>@Model.AboutEmail</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Freelance</h3>
+                <p>@(Model.AboutFreelance == true ? "Uygun" : "Uygun Değil")</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Beceriler Üst Başlığı</h3>
+                <p>@Model.SkillsUpperTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Beceri Başlığı</h3>
+                <p>@Model.SkillsTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Gerçekler Üst Başlığı</h3>
+                <p>@Model.FactsUpperTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Gerçekler Başlığı</h3>
+                <p>@Model.FactsTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Yorum Üst Başlığı</h3>
+                <p>@Model.TestimonialsUpperTitle</p>
+            </div>
+
+            <div class="mb-2">
+                <h3>Yorum Başlığı</h3>
+                <p>@Model.TestimonialsTitle</p>
+            </div>
+        </div>
+    </div>
+</div>

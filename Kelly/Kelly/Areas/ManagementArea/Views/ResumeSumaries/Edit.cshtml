@@ -1,0 +1,59 @@
+﻿@model ResumeSumary
+
+<div class="col-12">
+    <div class="card">
+
+        <div class="card-header">
+            <h1 style="display:inline-block;">Özgeçmiş Kartı Düzenle</h1>
+            <a asp-area="ManagementArea" asp-controller="ResumeSumaries" asp-action="Index" class=" btn btn-warning" style="float:right;">Geri</a>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                
+                @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.ResumePageId)
+
+                <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Title"></label>
+                    <input type="text" class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Name"></label>
+                    <input type="text" class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Description"></label>
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Address"></label>
+                    <input type="text" class="form-control" asp-for="Address" />
+                    <span asp-validation-for="Address" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Phone"></label>
+                    <input type="tel" class="form-control" asp-for="Phone" />
+                    <span asp-validation-for="Phone" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Email"></label>
+                    <input type="email" class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" style="color:red;"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

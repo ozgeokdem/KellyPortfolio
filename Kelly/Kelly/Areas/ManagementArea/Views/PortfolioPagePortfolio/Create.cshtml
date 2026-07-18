@@ -1,0 +1,205 @@
+﻿@model PortfolioItem
+
+<div class="col-12">
+    <div class="card">
+
+        <div class="card-header">
+            <h1 style="display:inline-block;">Yeni Portfolio Öğesi Ekle</h1>
+            <a asp-area="ManagementArea" asp-controller="PortfolioPagePortfolio" asp-action="Index" class=" btn btn-warning" style="float:right;">Geri</a>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+
+                <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Title"></label>
+                    <input type="text" class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ProjectCategory"></label>
+                    <input type="text" class="form-control" asp-for="ProjectCategory" />
+                    <span asp-validation-for="ProjectCategory" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ProjectClient"></label>
+                    <input type="text" class="form-control" asp-for="ProjectClient" />
+                    <span asp-validation-for="ProjectClient" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ProjectDate"></label>
+                    <input type="date" class="form-control" asp-for="ProjectDate" />
+                    <span asp-validation-for="ProjectDate" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ProjectUrl"></label>
+                    <input type="text" class="form-control" asp-for="ProjectUrl" />
+                    <span asp-validation-for="ProjectUrl" style="color:red;"></span>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="form-label" asp-for="Description"></label>
+                    <input type="text" class="form-control" asp-for="Description" />
+                    <span asp-validation-for="Description" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ImageUrl"></label>
+                    <input type="file" class="form-control" name="img" />
+                    <span asp-validation-for="ImageUrl" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="EditorContent"></label>
+                    <textarea rows="5" class="form-control" asp-for="EditorContent" id="EditorContent"></textarea>
+                    <span asp-validation-for="EditorContent" style="color:red;"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section PageScripts {
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/super-build/ckeditor.js"></script>
+    <script>
+        (function(){
+        const editors = [
+        { id: '@Html.IdFor(m => m.EditorContent)', placeholder: 'Editör içeriğini giriniz...' }
+        ];
+
+        const buildConfig = (placeholder) => ({
+        toolbar: {
+        items: [
+        'exportPDF', 'exportWord', '|',
+        'findAndReplace', 'selectAll', '|',
+        'heading', '|',
+        'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'removeFormat', '|',
+        'bulletedList', 'numberedList', 'todoList', '|',
+        'outdent', 'indent', '|',
+        'undo', 'redo',
+        '-',
+        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+        'alignment', '|',
+        'link', 'uploadImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
+        'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+        'textPartLanguage', '|',
+        'sourceEditing'
+        ],
+        shouldNotGroupWhenFull: true
+        },
+        list: {
+        properties: {
+        styles: true,
+        startIndex: true,
+        reversed: true
+        }
+        },
+        heading: {
+        options: [
+        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
+        ]
+        },
+        placeholder: placeholder || 'İçerik',
+        fontFamily: {
+        options: [
+        'default',
+        'Arial, Helvetica, sans-serif',
+        'Courier New, Courier, monospace',
+        'Georgia, serif',
+        'Lucida Sans Unicode, Lucida Grande, sans-serif',
+        'Tahoma, Geneva, sans-serif',
+        'Times New Roman, Times, serif',
+        'Trebuchet MS, Helvetica, sans-serif',
+        'Verdana, Geneva, sans-serif'
+        ],
+        supportAllValues: true
+        },
+        fontSize: {
+        options: [10, 12, 14, 'default', 18, 20, 22],
+        supportAllValues: true
+        },
+        htmlSupport: {
+        allow: [{
+        name: /.*/,
+        attributes: true,
+        classes: true,
+        styles: true
+        }]
+        },
+        htmlEmbed: {
+        showPreviews: true
+        },
+        link: {
+        decorators: {
+        addTargetToExternalLinks: true,
+        defaultProtocol: 'https://',
+        toggleDownloadable: {
+        mode: 'manual',
+        label: 'Downloadable',
+        attributes: {
+        download: 'file'
+        }
+        }
+        }
+        },
+        mention: {
+        feeds: [{
+        marker: '$',
+        feed: [
+        '$apple', '$bears', '$brownie', '$chocolate', '$cookies', '$cupcakes', '$donut', '$eclair', '$fudge',
+        '$gingerbread', '$honey', '$ice cream', '$jelly', '$kitkat', '$lemon', '$muffin', '$nut', '$oreo', '$pie',
+        '$quince', '$raspberry', '$strawberry', '$tart', '$upside down cake', '$vanilla', '$waffle', '$yogurt', '$zucchini'
+        ],
+        minimumCharacters: 1
+        }]
+        },
+        removePlugins: [
+        'AIAssistant',
+        'CKBox',
+        'CKFinder',
+        'EasyImage',
+        'RealTimeCollaborativeComments',
+        'RealTimeCollaborativeTrackChanges',
+        'RealTimeCollaborativeRevisionHistory',
+        'PresenceList',
+        'Comments',
+        'TrackChanges',
+        'TrackChangesData',
+        'RevisionHistory',
+        'Pagination',
+        'WProofreader',
+        'MathType',
+        'SlashCommand',
+        'Template',
+        'DocumentOutline',
+        'FormatPainter',
+        'TableOfContents',
+        'PasteFromOfficeEnhanced',
+        'CaseChange'
+        ]
+        });
+
+        editors.forEach(editor => {
+        const element = document.getElementById(editor.id);
+        if (!element || !(window.CKEDITOR && CKEDITOR.ClassicEditor)) {
+        return;
+        }
+
+        CKEDITOR.ClassicEditor.create(element, buildConfig(editor.placeholder))
+        .catch(err => console.error('CKEditor init error', err));
+        });
+        })();
+    </script>
+}

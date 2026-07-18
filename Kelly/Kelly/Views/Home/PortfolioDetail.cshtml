@@ -1,0 +1,72 @@
+﻿@model PortfolioDetailVM
+
+<!-- Portfolio Details Section -->
+<section id="portfolio-details" class="portfolio-details section">
+
+    @await Html.PartialAsync("_SectionTitle",
+    new SectionTitleVM
+    {
+                Title = "Portföy Detay",
+        Description = "Projeye ait kullanılan teknolojiler, geliştirme süreci ve diğer detaylı bilgileri bu sayfada inceleyebilirsiniz."
+            })
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper init-swiper">
+
+                    <script type="application/json" class="swiper-config">
+                                            {
+                                              "loop": true,
+                                              "speed": 600,
+                                              "autoplay": {
+                                                "delay": 5000
+                                              },
+                                              "slidesPerView": "auto",
+                                              "pagination": {
+                                                "el": ".swiper-pagination",
+                                                "type": "bullets",
+                                                "clickable": true
+                                              }
+                                            }
+                    </script>
+
+                    <div class="swiper-wrapper align-items-center">
+                        @foreach (var item in Model.Item.Images)
+                        {
+                            <div class="swiper-slide">
+                                <img src="@item.ImageUrl" alt="@item.ImageAlt">
+                            </div>
+                        }
+                        
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                    <h3>@Model.Item.Title</h3>
+                    <ul>
+                        <li><strong>Category</strong>: @Model.Item.ProjectCategory</li>
+                        <li><strong>Client</strong>: @Model.Item.ProjectClient</li>
+                        <li><strong>Project date</strong>: @Model.Item.ProjectDate?.ToString("dd/MM/yyyy")</li>
+                        <li><strong>Project URL</strong>: <a href="#">@Model.Item.ProjectUrl</a></li>
+                    </ul>
+                </div>
+                <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+                    <h2>@Model.Item.Description</h2>
+                    
+                    @Html.Raw(Model.Item.EditorContent)
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- /Portfolio Details Section -->

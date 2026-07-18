@@ -1,0 +1,145 @@
+﻿@model AboutPage
+
+<div class="col-12">
+    <div class="card">
+
+        <div class="card-header">
+            <h1 style="display:inline-block;">Hakkımızda Sayfası Düzenle</h1>
+            <a asp-area="ManagementArea" asp-controller="AboutPages" asp-action="Index" class=" btn btn-warning" style="float:right;">Geri</a>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="Edit" enctype="multipart/form-data" method="post">
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(x => x.Id)
+
+                <div asp-validation-summary="ModelOnly" style="color:red;"></div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="PageTitle"></label>
+                    <input type="text" class="form-control" asp-for="PageTitle" />
+                    <span asp-validation-for="PageTitle" style="color:red;" ></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="PageDescription"></label>
+                    <textarea class="form-control" asp-for="PageDescription" ></textarea>
+                    <span asp-validation-for="PageDescription" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutTitle"></label>
+                    <input type="text" class="form-control" asp-for="AboutTitle" />
+                    <span asp-validation-for="AboutTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutDescription"></label>
+                    <textarea class="form-control" asp-for="AboutDescription" ></textarea>
+                    <span asp-validation-for="AboutDescription" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutContent"></label>
+                    <textarea class="form-control" asp-for="AboutContent" ></textarea>
+                    <span asp-validation-for="AboutContent" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="ImageUrl"></label>
+                    <input type="file" class="form-control" name="img" />
+                    <span asp-validation-for="ImageUrl" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutBirthday"></label>
+                    <input type="date" class="form-control" asp-for="AboutBirthday" />
+                    <span asp-validation-for="AboutBirthday" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutWebsite"></label>
+                    <input type="text" class="form-control" asp-for="AboutWebsite" />
+                    <span asp-validation-for="AboutWebsite" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutPhoneNumber"></label>
+                    <input type="tel" class="form-control" asp-for="AboutPhoneNumber" />
+                    <span asp-validation-for="AboutPhoneNumber" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutCity"></label>
+                    <input type="text" class="form-control" asp-for="AboutCity" />
+                    <span asp-validation-for="AboutCity" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutAge"></label>
+                    <input type="number" class="form-control" asp-for="AboutAge" />
+                    <span asp-validation-for="AboutAge" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutDegree"></label>
+                    <input type="text" class="form-control" asp-for="AboutDegree" />
+                    <span asp-validation-for="AboutDegree" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="AboutEmail"></label>
+                    <input type="email" class="form-control" asp-for="AboutEmail" />
+                    <span asp-validation-for="AboutEmail" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6 form-check form-switch">
+                    <label class="form-label" asp-for="AboutFreelance"></label>
+                    <input type="checkbox" class="form-check-input" asp-for="AboutFreelance" />
+                    <span asp-validation-for="AboutFreelance" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="SkillsUpperTitle"></label>
+                    <input type="text" class="form-control" asp-for="SkillsUpperTitle" />
+                    <span asp-validation-for="SkillsUpperTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="SkillsTitle"></label>
+                    <input type="text" class="form-control" asp-for="SkillsTitle" />
+                    <span asp-validation-for="SkillsTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="FactsUpperTitle"></label>
+                    <input type="text" class="form-control" asp-for="FactsUpperTitle" />
+                    <span asp-validation-for="FactsUpperTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="FactsTitle"></label>
+                    <input type="text" class="form-control" asp-for="FactsTitle" />
+                    <span asp-validation-for="FactsTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="TestimonialsUpperTitle"></label>
+                    <input type="text" class="form-control" asp-for="TestimonialsUpperTitle" />
+                    <span asp-validation-for="TestimonialsUpperTitle" style="color:red;"></span>
+                </div>
+
+                <div class="mb-6">
+                    <label class="form-label" asp-for="TestimonialsTitle"></label>
+                    <input type="text" class="form-control" asp-for="TestimonialsTitle" />
+                    <span asp-validation-for="TestimonialsTitle" style="color:red;"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+
+        </div>
+    </div>
+</div>

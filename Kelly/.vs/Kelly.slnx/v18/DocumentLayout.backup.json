@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u00D6ZGE\\source\\repos\\Kelly\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76954D78-3B9D-0073-DE70-0B5A240D940D}|Kelly\\Kelly.csproj|c:\\users\\\u00F6zge\\source\\repos\\kelly\\kelly\\areas\\managementarea\\views\\shared\\_menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76954D78-3B9D-0073-DE70-0B5A240D940D}|Kelly\\Kelly.csproj|solutionrelative:kelly\\areas\\managementarea\\views\\shared\\_menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 703,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Menu.cshtml",
+              "DocumentMoniker": "C:\\Users\\\u00D6ZGE\\source\\repos\\Kelly\\Kelly\\Areas\\ManagementArea\\Views\\Shared\\_Menu.cshtml",
+              "RelativeDocumentMoniker": "Kelly\\Areas\\ManagementArea\\Views\\Shared\\_Menu.cshtml",
+              "ToolTip": "C:\\Users\\\u00D6ZGE\\source\\repos\\Kelly\\Kelly\\Areas\\ManagementArea\\Views\\Shared\\_Menu.cshtml*",
+              "RelativeToolTip": "Kelly\\Areas\\ManagementArea\\Views\\Shared\\_Menu.cshtml*",
+              "ViewState": "AgIAAAoBAAAAAAAAAAD4vxoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-18T11:08:05.399Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

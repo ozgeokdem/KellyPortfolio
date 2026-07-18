@@ -1,0 +1,18 @@
+﻿@model HomePage
+
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+
+    <img src="@Model.ImageUrl" alt="" data-aos="fade-in">
+
+    <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2>@Model.PageTitle</h2>
+                <p>@Model.PageDescription</p>
+                <a href="@Model.PageButtonUrl" class="btn-get-started">@Model.PageButtonTitle</a>
+            </div>
+        </div>
+    </div>
+
+</section><!-- /Hero Section -->
